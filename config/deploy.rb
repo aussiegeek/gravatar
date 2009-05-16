@@ -30,6 +30,7 @@ end
 desc "Link in the production database.yml" 
 task :after_update_code do
   run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml" 
+  run "ln -nfs #{deploy_to}/shared/db/production.sqlite3 #{release_path}/db/production.sqlite3" 
 end
 
 after :deploy, "deploy:cleanup"
