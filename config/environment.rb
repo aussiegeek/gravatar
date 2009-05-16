@@ -8,7 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem 'haml'
-  config.gem 'josevalim-rails-footnotes'
+  config.gem 'josevalim-rails-footnotes', :lib => 'rails-footnotes'
   config.gem 'rspec-rails', :lib => false
   config.gem 'cucumber', :lib => false
   # Settings in config/environments/* take precedence over those specified here.
