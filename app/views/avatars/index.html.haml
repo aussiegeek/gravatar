@@ -2,7 +2,7 @@
 
 %table
   %tr
-  - @avatars.in_groups_of(2) do |avatars|
+  - @avatars.in_groups_of(2, false) do |avatars|
     %tr
       -avatars.each do |avatar|
         %td
