@@ -1,6 +1,6 @@
 class AvatarsController < ApplicationController
   def index
-    @avatars = Avatar.all
+    @avatars = Avatar.all(:order => 'email')
   end
   
   def show
