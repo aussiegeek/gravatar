@@ -1,0 +1,15 @@
+- title "Avatar"
+
+%p
+  %strong Email:
+  =h @avatar.email
+%br
+=image_tag @avatar.avatar.url
+
+
+%p
+  = link_to "Edit", edit_avatar_path(@avatar)
+  |
+  = link_to "Destroy", @avatar, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", avatars_path

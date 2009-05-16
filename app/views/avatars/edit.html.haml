@@ -1,0 +1,8 @@
+- title "Edit Avatar"
+
+= render :partial => 'form'
+
+%p
+  = link_to "Edit", edit_avatar_path(@avatar)
+  |
+  = link_to "View All", avatars_path

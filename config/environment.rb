@@ -11,6 +11,10 @@ Rails::Initializer.run do |config|
   config.gem 'josevalim-rails-footnotes', :lib => 'rails-footnotes'
   config.gem 'rspec-rails', :lib => false
   config.gem 'cucumber', :lib => false
+  config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
+  config.gem 'faker', :lib => false
+  config.gem 'notahat-machinist', :lib => 'machinist'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

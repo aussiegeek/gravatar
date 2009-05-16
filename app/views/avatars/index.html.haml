@@ -1,0 +1,21 @@
+- title "Avatars"
+
+%table
+  %tr
+    %th Email
+    %th Avatar file name
+    %th Avatar content type
+    %th Avatar file size
+    %th Avatar updated at
+  - for avatar in @avatars
+    %tr
+      %td= h avatar.email
+      %td= h avatar.avatar_file_name
+      %td= h avatar.avatar_content_type
+      %td= h avatar.avatar_file_size
+      %td= h avatar.avatar_updated_at
+      %td= link_to 'Show', avatar
+      %td= link_to 'Edit', edit_avatar_path(avatar)
+      %td= link_to 'Destroy', avatar, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Avatar", new_avatar_path

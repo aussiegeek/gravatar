@@ -1,0 +1,12 @@
+- form_for @avatar, :html => {:multipart => true} do |f|
+  = f.error_messages
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email
+  %p
+    = f.label :avatar
+    %br
+    = f.file_field :avatar
+  %p
+    = f.submit "Submit"
