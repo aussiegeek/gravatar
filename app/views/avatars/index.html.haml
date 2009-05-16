@@ -6,7 +6,7 @@
   - for avatar in @avatars
     %tr
       %td= h avatar.email
-      %td= image_tag(avatar.avatar.url)
+      %td= image_tag(avatar.avatar.url, :size => '80x80')
       %td= link_to 'Show', avatar
       %td= link_to 'Edit', edit_avatar_path(avatar)
       %td= link_to 'Destroy', avatar, :confirm => 'Are you sure?', :method => :delete
