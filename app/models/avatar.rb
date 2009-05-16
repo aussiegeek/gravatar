@@ -1,5 +1,7 @@
 class Avatar < ActiveRecord::Base
   validates_presence_of :email
+  validates_uniquness_of :email
+  
 #   validates_attachment_presence :avatar
   has_attached_file :avatar
 
