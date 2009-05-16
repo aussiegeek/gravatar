@@ -2,13 +2,15 @@
 
 %table
   %tr
-    %th Email
-  - for avatar in @avatars
+  - @avatars.in_groups_of(2) do |avatars|
     %tr
-      %td= h avatar.email
-      %td= image_tag(avatar.avatar.url, :size => '80x80')
-      %td= link_to 'Show', avatar
-      %td= link_to 'Edit', edit_avatar_path(avatar)
-      %td= link_to 'Destroy', avatar, :confirm => 'Are you sure?', :method => :delete
+      -avatars.each do |avatar|
+        %td
+          = h avatar.email
+          %br
+          = link_to 'Show', avatar
+          = link_to 'Edit', edit_avatar_path(avatar)
+          = link_to 'Destroy', avatar, :confirm => 'Are you sure?', :method => :delete
+        %td= image_tag(avatar.avatar.url, :size => '80x80')
 
 %p= link_to "New Avatar", new_avatar_path
