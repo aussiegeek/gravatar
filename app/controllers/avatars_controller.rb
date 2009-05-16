@@ -4,16 +4,20 @@ class AvatarsController < ApplicationController
   end
   
   def show
+    if params[:id].blank? && params.include?(:gravatar_id)
+      params[:id] = params[:gravatar_id]
+    end
+    
     begin
       @avatar = Avatar.find_by_md5!(params[:id])
       respond_to do |format|
         format.html
-        format.png { send_file(@avatar.avatar.path, :type => @avatar.avatar_content_type, :disposition => 'inline') }
+        format.png { send_gravatar(@avatar.avatar.path) }
       end
     rescue ActiveRecord::RecordNotFound
       respond_to do |format|
         format.html { render :text => "Not Found" }
-        format.png { send_file(RAILS_ROOT + '/public/images/rails.png', :type => 'image/png', :disposition => 'inline')}
+        format.png { send_gravatar(RAILS_ROOT + '/public/images/rails.png')}
       end
     end
   end
@@ -51,5 +55,10 @@ class AvatarsController < ApplicationController
     @avatar.destroy
     flash[:notice] = "Successfully destroyed avatar."
     redirect_to avatars_url
+  end
+
+  private
+  def send_gravatar(filename, mimetype = 'image/png')
+    send_file(filename, :type => mimetype, :disposition => 'inline')
   end
 end
